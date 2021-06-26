@@ -6,7 +6,10 @@ import router from './router'
 import "@/api"
 import "@/directives"
 Vue.config.productionTip = false
-
+import rdate from 'rdatejs'
+import rutils from 'rutilsjs'
+Vue.prototype.$date = rdate
+Vue.prototype.$utils = rutils
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

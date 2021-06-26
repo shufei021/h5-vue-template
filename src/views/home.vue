@@ -19,6 +19,8 @@ export default {
     }
   },
    mounted () {
+     console.log(this.$date)
+     console.log(this.$utils)
     //  console.log(group)
     //  console.log(getAttr)
       // console.log(this.$api)
