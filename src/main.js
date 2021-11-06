@@ -1,19 +1,26 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+/*
+ * @Description: 模板入口文件
+ * @Author: shufei
+ * @Date: 2021-11-04 09:50:04
+ * @LastEditTime: 2021-11-06 18:43:15
+ * @LastEditors: shufei
+ */
 import Vue from 'vue'
-import App from './App'
+import App from './App.vue'
 import router from './router'
-import "@/api"
-import "@/directives"
+import store from './store'
+import '@/api'
+import '@/filters'
+import '@/directives'
+import '@/mixins'
+import '@/util'
+import '@/core/vant'
+import 'vant/lib/index.css'
+import 'lib-flexible'
+
 Vue.config.productionTip = false
-import rdate from 'rdatejs'
-import rutils from 'rutilsjs'
-Vue.prototype.$date = rdate
-Vue.prototype.$utils = rutils
-/* eslint-disable no-new */
 new Vue({
-  el: '#app',
   router,
-  components: { App },
-  template: '<App/>'
-})
+  store,
+  render: (h) => h(App),
+}).$mount('#app')

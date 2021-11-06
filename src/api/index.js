@@ -1,21 +1,16 @@
-
-// 第一种
-// export * from "./modules/user.js"
-// export * from "./modules/cart.js"
-
-
-// 第二种
+/*
+ * @Author: shufei
+ * @Date: 2021-11-02 20:47:05
+ * @LastEditTime: 2021-11-04 18:55:22
+ * @LastEditors: shufei
+ * @Description: api 模块化设置( 提示：该文件禁止修改 )
+ */
 import Vue from 'vue'
-// 通过 webpack 的 require.context 获取指定路径下面的js文件，为了可以进一步深度遍历，
-// 第二个参数传为true
 const files = require.context('./modules', true, /\.js$/)
-
-// 所有api集合对象
-const api = files.keys().reduce((modules, path) => {
-    const apis = Object.keys(files(path)).reduce((r, key) => {
-        r[key] = files(path)[key]
-        return r
-    }, {})
-    return Object.assign({}, modules, apis)
+const apis = files.keys().reduce((p, c) => {
+  const moduleName = c.slice(2, c.lastIndexOf('/'))
+  const moduleNameApi = Object.keys(files(c)).reduce((pre, nxt) => ({ ...pre, [nxt]: files(c)[nxt] }), {})
+  p[moduleName] = p[moduleName] ? { ...p[moduleName], ...moduleNameApi } : moduleNameApi
+  return p
 }, {})
-Vue.prototype.$api = api
+Vue.prototype.$api = apis

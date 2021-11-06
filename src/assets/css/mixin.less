@@ -1,0 +1,104 @@
+// 清除浮动
+.clearfix {
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+// 单行超出省略号
+.singleoverflow() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// 多行隐藏
+.textoverflow($clamp: 1) {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $clamp;
+    /*! autoprefixer: ignore next */
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+}
+
+//flex box
+.flexbox($jc: flex-start, $ai: center, $fd: row, $fw: nowrap) {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: $jc;
+    -webkit-justify-content: $jc;
+    align-items: $ai;
+    -webkit-align-items: $ai;
+    flex-direction: $fd;
+    -webkit-flex-direction: $fd;
+    flex-wrap: $fw;
+    -webkit-flex-wrap: $fw;
+}
+
+// 1像素样式混入左边线
+.left1px($color: #e5e5e5, $distanceTop: 0, $distanceBottom: 0) {
+    content: ' ';
+    position: absolute;
+    box-sizing: border-box;
+    pointer-events: none;
+    bottom: $distanceBottom;
+    left: 0;
+    top: $distanceTop;
+    border-left: 1px solid $color;
+    transform: scaleX(0.5);
+}
+// 1像素样式混入 上边线
+.top1px($color: #e5e5e5, $distanceLeft: 0, $distanceRight: 0) {
+    content: ' ';
+    position: absolute;
+    box-sizing: border-box;
+    pointer-events: none;
+    right: $distanceRight;
+    top: 0;
+    left: $distanceLeft;
+    border-bottom: 1px solid $color;
+    transform-origin: 0 0;
+    transform: scaleY(0.5);
+}
+// 1像素样式混入 下边线
+.bt1px($color: #e5e5e5, $distanceLeft: 0, $distanceRight: 0) {
+    content: ' ';
+    position: absolute;
+    box-sizing: border-box;
+    pointer-events: none;
+    right: $distanceRight;
+    bottom: 0;
+    left: $distanceLeft;
+    border-bottom: 1px solid$color;
+    transform: scaleY(0.5);
+}
+
+// 箭头 arrow 基类
+.arrowBase($color: #666666, $padding: 3px) {
+    border: solid $color;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: $padding;
+}
+// >    右箭头
+.arrowRight() {
+    transform: rotate(-45deg);
+}
+// <    左箭头
+.arrowLeft() {
+    transform: rotate(135deg);
+}
+// ↑    上箭头
+.arrowUp() {
+    transform: rotate(-135deg);
+}
+// ↓    下箭头
+.arrowDown() {
+    transform: rotate(45deg);
+}

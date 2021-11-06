@@ -1,13 +1,13 @@
 /*
- * @Description: 项目全局指令
+ * @Description: 项目全局过滤器
  * @Author: shufei
- * @Date: 2021-11-04 19:12:29
- * @LastEditTime: 2021-11-04 19:41:17
+ * @Date: 2021-11-04 19:31:52
+ * @LastEditTime: 2021-11-04 19:39:02
  * @LastEditors: shufei
  */
 import Vue from 'vue'
 const files = require.context('./modules', false, /\.js$/)
 files.keys().forEach(key => {
   const fileName = key.replace(/(\.\/|\.js)/g, '')
-  Vue.directive(fileName, files(key).default)
+  Vue.filter(fileName, files(key).default)
 })
