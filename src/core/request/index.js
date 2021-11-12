@@ -2,7 +2,7 @@
  * @Description: axios 封装
  * @Author: shufei
  * @Date: 2021-11-06 17:02:29
- * @LastEditTime: 2021-11-06 18:10:57
+ * @LastEditTime: 2021-11-08 09:45:43
  * @LastEditors: shufei
  */
 import axios from 'axios' // 引入axios
@@ -18,7 +18,7 @@ const tip = (msg) => {
   Toast({
     message: msg,
     duration: 1000,
-    forbidClick: true,
+    forbidClick: true
   })
 }
 
@@ -26,12 +26,12 @@ const tip = (msg) => {
  * loading
  */
 const loading = {
-  opne() {
+  opne () {
     Toast.loading({ forbidClick: true, duration: 0 })
   },
-  close() {
+  close () {
     Toast.clear()
-  },
+  }
 }
 
 /**
@@ -42,8 +42,8 @@ const toLogin = () => {
   router.replace({
     path: '/login',
     query: {
-      redirect: router.currentRoute.fullPath,
-    },
+      redirect: router.currentRoute.fullPath
+    }
   })
 }
 
@@ -83,7 +83,7 @@ const source = CancelToken.source()
 // 创建axios实例
 const instance = axios.create({
   timeout: 1000 * 12,
-  cancelToken: source.token, // 取消请求（比如你进入某个路由后，可能就停在了这个页面就1s时间， 就立马进入了下个路由，这时，前边这个路由的请求就可以取消掉了）
+  cancelToken: source.token // 取消请求（比如你进入某个路由后，可能就停在了这个页面就1s时间， 就立马进入了下个路由，这时，前边这个路由的请求就可以取消掉了）
 })
 
 // 设置post请求头
@@ -102,6 +102,7 @@ instance.interceptors.request.use(
     // 但是即使token存在，也有可能token是过期的，所以在每次的请求头中携带token
     // 后台根据携带的token判断用户的登录情况，并返回给我们对应的状态码
     // 而后我们可以在响应拦截器中，根据状态码进行一些统一的操作。
+    if (config.showLoading)loading.open()
     const token = store.state.token
     token && (config.headers.Authorization = token)
     return config

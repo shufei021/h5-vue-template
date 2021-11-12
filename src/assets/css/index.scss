@@ -1,0 +1,147 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import 'https://at.alicdn.com/t/font_2322199_0iu6vy1hhvu5.css'; //图标 
+body,
+button,
+html,
+img,
+input,
+ol,
+h1,
+h2,
+h3,
+p,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: PingFangSC-Regular, Microsoft Yahei, helvetica neue, helvetica, lantinghei sc, hiragino sans gb, sans-serif;
+    background: $background-color;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: $base-size;
+    color: $text-color;
+}
+
+.iphoneX {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+//color
+.blue {
+    color: $blue;
+}
+
+.hide {
+    display: none !important;
+}
+.safe-area-bottom {
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+// 底部按钮（蓝色白色）
+.foot_btn_box {
+    display: flex;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    position: relative;
+
+    .foot_btn {
+        flex: 1;
+        text-align: center;
+        background-color: #fff;
+        height: auto;
+        font-size: 18px;
+
+        &.foot_blue {
+            background-color: #27b2ff;
+            color: #fff;
+        }
+
+        &.foot_light_white {
+            background-color: #f4f4f4;
+        }
+    }
+
+    &:before {
+        position: absolute;
+        content: ' ';
+        right: 0;
+        top: 0;
+        left: 0;
+        border-top: 1px solid #e5e5e5;
+        transform: scaleY(0.5);
+    }
+}
+
+// 去掉TarBar底部的线条
+.layout-footer [class*='van-hairline']::after {
+    border-bottom: 0;
+}
+
+.mescroll-empty {
+    margin-top: 70px;
+    .empty-icon {
+        width: 25% !important;
+    }
+}
+
+.mescroll-totop {
+    bottom: 65px !important;
+    right: 16px !important;
+}
+
+// 加深线条颜色
+[class*='van-hairline']::after {
+    border-color: #e3e5e7;
+}
+
+
+/* page change */
+$--transition-time: 300ms;
+.back-enter-active,
+.back-leave-active,
+.forward-enter-active,
+.forward-leave-active {
+  will-change: transform;
+  transition: transform $--transition-time;
+  position: absolute;
+  height: 100%;
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+.back-enter {
+  opacity: 0.75;
+  transform: translate3d(-50%, 0, 0) !important;
+}
+.back-enter-active {
+  z-index: -1 !important;
+  transition: transform $--transition-time;
+}
+.back-leave-active {
+  transform: translate3d(100%, 0, 0) !important;
+  transition: transform $--transition-time;
+}
+.forward-enter {
+  transform: translate3d(100%, 0, 0) !important;
+}
+.forward-enter-active {
+  transition: transform $--transition-time;
+}
+.forward-leave-active {
+  z-index: -1;
+  opacity: 0.65;
+  transform: translate3d(-50%, 0, 0) !important;
+  transition: transform $--transition-time;
+}

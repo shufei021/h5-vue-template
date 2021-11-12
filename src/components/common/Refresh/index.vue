@@ -2,7 +2,7 @@
  * @Description: 全局通用的断网提示 刷新组件
  * @Author: shufei
  * @Date: 2021-11-06 17:53:01
- * @LastEditTime: 2021-11-06 17:53:02
+ * @LastEditTime: 2021-11-12 13:41:27
  * @LastEditors: shufei
 -->
 <template>
@@ -13,10 +13,10 @@
 export default {
   components: {},
   props: {},
-  data() {
+  data () {
     return {}
   },
-  beforeRouteEnter(to, from, next) {
+  beforeRouteEnter (to, from, next) {
     next((vm) => {
       vm.$router.replace(from.fullPath)
     })
@@ -24,8 +24,8 @@ export default {
   watch: {},
   computed: {},
   methods: {},
-  created() {},
-  mounted() {},
+  created () {},
+  mounted () {}
 }
 </script>
 <style lang="scss" scoped>

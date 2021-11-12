@@ -2,62 +2,82 @@
  * @Description:
  * @Author: shufei
  * @Date: 2021-11-04 09:50:04
- * @LastEditTime: 2021-11-07 00:15:44
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-11-12 20:46:48
+ * @LastEditors: shufei
 -->
 <template>
-  <div>
-    <button class="btn" @click="show = true">取消</button>
-    <!-- <Banner></Banner>
-    <div class="cle">反对反对反对反对反对反对法十公分的身高</div>
-    <van-tabbar v-model="active">
-      <van-tabbar-item icon="home-o">标签</van-tabbar-item>
-      <van-tabbar-item icon="search">标签</van-tabbar-item>
-      <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
-      <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
-    </van-tabbar> -->
-    <popupLayer :visible.sync="show" @onClose="$emit('update:show', false)">
-      二级支撑页面内容区域
-      <button class="btn" @click="show = false">取消</button>
-    </popupLayer>
+  <div class="container">
+    <van-divider>vue2.0 + vant H5通用模板</van-divider>
+    <van-cell is-link to="/public">常用组件文档</van-cell>
+    <van-cell is-link to="/doc">项目说明文档</van-cell>
+    <h1 class="cs">实打实打算</h1>
   </div>
 </template>
 
 <script>
 import { Banner } from '@/components'
 import { emotionList } from '@/mixins'
+import { Divider } from 'vant'
+
 export default {
-  components: { Banner },
+  components: { Banner, [Divider.name]: Divider },
   mixins: [emotionList],
-  data() {
+  data () {
     return {
-      active: '',
-      num: '2020/01/01',
-      show: false,
+
     }
   },
-  created() {},
-  mounted() {
-    console.log(this.$utils)
-    // this.showloading()
-    window.addEventListener('online', function () {
-      alert('正常工作')
-    })
+  created () {
 
-    window.addEventListener('offline', function () {
-      alert('不在线')
-    })
   },
-  methods: {},
+  mounted () {
+    console.log(this.$api)
+    // this.showloading()
+    console.log(this.$route.query, '99999')
+  },
+  methods: {
+    /**
+     * @description: 客户列表-下拉加载
+     * @param {*} mescroll
+     */
+    downCallback (mescroll) {
+      if (!this.mescroll) this.mescroll = mescroll
+      mescroll.resetUpScroll()
+    },
+    /**
+     * @description: 客户列表-上拉加载更多
+     * @param {*} page
+     * @param {*} mescroll
+     */
+    upCallback (page, mescroll) {
+      console.log(page, mescroll)
+    }
+
+  }
 }
 </script>
 
-<style scoped lang="less">
-h1 {
+<style scoped lang="scss">
+h1{
   font-size: 14px;
 }
-.cle {
+.cle{
   width: 200px;
   height: 400px;
+}
+.scroller{
+  height: 100vh;
+   overflow: auto;
+   .mscroll_warp>div{
+     padding: 15px 0;
+   }
+}
+.content{
+  width: 100px;
+}
+.wrap{
+  background-color: #fff;
+  padding: 15px;
+  line-height: 24px;
 }
 </style>

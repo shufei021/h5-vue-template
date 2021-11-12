@@ -2,8 +2,8 @@
  * @Description: 组件库自动化配置
  * @Author: shufei
  * @Date: 2021-11-04 12:46:29
- * @LastEditTime: 2021-11-07 00:20:06
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-11-09 10:48:08
+ * @LastEditors: shufei
  */
 /**
  * 全局组件
@@ -15,7 +15,7 @@ import './public'
  * 公共通用型组件(通用性组件)
  *
  */
-export { default as Cart } from './common/Cart'
+export { default as TabBar } from './common/TabBar'
 
 /**
  * 业务型组件(页面性组件)

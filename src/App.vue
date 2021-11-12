@@ -2,83 +2,61 @@
  * @Description:
  * @Author: shufei
  * @Date: 2021-11-04 09:50:04
- * @LastEditTime: 2021-11-06 18:54:47
+ * @LastEditTime: 2021-11-12 22:12:46
  * @LastEditors: shufei
 -->
 <template>
   <div id="app">
-    <div v-if="!network">
-      <h3>我没网了</h3>
-      <div @click="onRefresh">刷新</div>
-    </div>
-    <router-view />
+    <transition :name="transitionName">
+      <keep-alive v-if="$route.meta.keepAlive">
+        <router-view class="router"></router-view>
+      </keep-alive>
+      <router-view class="router" v-else></router-view>
+    </transition>
   </div>
 </template>
 <script>
-import { mapState } from 'vuex'
-import store from '@/store'
 export default {
   name: 'App',
   computed: {
-    ...mapState(['network']),
-  },
-  methods: {
-    // 通过跳转一个空页面再返回的方式来实现刷新当前页面数据的目的
-    onRefresh() {
-      this.$router.replace('/refresh')
-    },
-  },
-  mounted() {
-    // if (navigator.onLine) {
-    //   alert('正常工作')
-    // } else {
-    //   alert('不在线')
-    // }
-    // window.addEventListener('online', function () {
-    //   store.commit.networkNotify(true)
-    //   alert('正常工作')
-    // })
-
-    // window.addEventListener('offline', function () {
-    //   store.commit.networkNotify(false)
-    //   alert('不在线')
-    // })
-    window.addEventListener('online', updateOnlineStatus)
-    window.addEventListener('offline', updateOnlineStatus)
-    function updateOnlineStatus(event) {
-      console.log('-----------------Control comes into updateOnlineStatus --------------')
-      console.log('event', event)
-      var condition = navigator.onLine ? 'online' : 'offline'
-      if (condition == 'online') {
-        console.log('-----------INternet Is conected ----------------')
-        alert('正常工作')
-      } else {
-        console.log('-----------INternet Is NOOOOOOTT conected ----------------')
-        alert('不在线')
-      }
+    transitionName () {
+      return this.$store.state.direction
     }
   },
+  created () {
+    console.log(this.$store, 'store', this.$route)
+  }
 }
 </script>
-<style lang="less">
+
+<style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
-#nav {
-  padding: 30px;
+.router {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  // background-color: #fff;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.dis {
+  display: flex;
+  width: 200px;
+  height: 200px;
 }
 </style>

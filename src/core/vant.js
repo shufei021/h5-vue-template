@@ -2,7 +2,7 @@
  * @Description: 全局引入按需引入UI库 vant
  * @Author: shufei
  * @Date: 2021-11-04 20:31:40
- * @LastEditTime: 2021-11-04 20:31:40
+ * @LastEditTime: 2021-11-09 10:39:07
  * @LastEditors: shufei
  */
 // 按需全局引入 vant组件
@@ -11,8 +11,6 @@ import {
   Button,
   List,
   Cell,
-  Tabbar,
-  TabbarItem,
   CellGroup,
   Loading,
   Tab,
@@ -62,7 +60,6 @@ Vue.use(Cell)
 Vue.use(List)
 Vue.use(Loading)
 Vue.use(CellGroup)
-Vue.use(Tabbar).use(TabbarItem)
 Vue.use(Tab)
 Vue.use(Tabs)
 Vue.use(Search)
