@@ -2,7 +2,7 @@
  * @Description:
  * @Author: shufei
  * @Date: 2021-11-13 20:36:01
- * @LastEditTime: 2021-11-14 14:36:06
+ * @LastEditTime: 2021-11-14 18:21:00
  * @LastEditors: shufei
 -->
 <!--
@@ -14,7 +14,7 @@
 -->
 <template>
   <div class="container">
-    <State></State>
+    <empty></empty>
   </div>
 </template>
 

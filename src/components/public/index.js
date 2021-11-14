@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-11-07 00:07:40
- * @LastEditTime: 2021-11-10 23:46:47
+ * @LastEditTime: 2021-11-14 18:19:56
  * @LastEditors: shufei
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \basic-project-template\src\components\public\index.js
@@ -9,11 +9,13 @@
 import Vue from 'vue'
 import PopupLayer from 'vue-popup-layer'
 import Mescroll from './Mescroll'
+import Empty from './Empty'
 import CollapseExpand from './CollapseExpand'
 // import SvgIcon from './SvgIcon'
 // #https://www.npmjs.com/package/vue-lazyload
 import VueLazyload from 'vue-lazyload'
 Vue.use(Mescroll)
+Vue.use(Empty)
 Vue.use(CollapseExpand)
 Vue.use(PopupLayer)
 // Vue.component('svg-icon', SvgIcon)
