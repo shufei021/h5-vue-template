@@ -2,7 +2,7 @@
  * @Description: popuplayer-demo 无限弹出层示例
  * @Author: shufei
  * @Date: 2021-11-08 16:55:32
- * @LastEditTime: 2021-11-14 20:05:15
+ * @LastEditTime: 2021-11-14 21:23:40
  * @LastEditors: shufei
 -->
 <template>
@@ -47,6 +47,13 @@ export default {
       }
     }
   },
+  mounted () {
+    this.$nextTick(() => {
+      window.addEventListener('pageshow', function (e) {
+        console.log(e)
+      })
+    })
+  },
   methods: {
     open (id, extra) {
       console.log('第' + extra.lv + '层弹层打开了', id, extra)
@@ -58,8 +65,13 @@ export default {
       console.log(isPopstate ? '点击物理返回键 把 第' + extra.lv + '层弹层关闭了' : '用其它非物理返回键方式 把 第' + extra.lv + '层弹层关闭了', extra)
     },
     closeAll (lv) {
-      for (let i = 1; i <= lv; i++) {
-        this.$refs['lv' + i].closeLv()
+      //  for (let i = lv; i > 0; i--)  this.$refs['lv' + i].closeLv()
+      for (let i = lv; i > 0; i--) {
+        ((i) => {
+          setTimeout(() => {
+            this.$refs['lv' + i].closeLv()
+          }, i * 30)
+        })(i)
       }
     }
   }
