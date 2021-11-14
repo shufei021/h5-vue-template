@@ -2,7 +2,7 @@
  * @Description: 项目配置
  * @Author: shufei
  * @Date: 2021-11-04 21:18:01
- * @LastEditTime: 2021-11-12 22:58:28
+ * @LastEditTime: 2021-11-14 09:46:43
  * @LastEditors: shufei
  */
 'use strict'
@@ -14,7 +14,7 @@ const IS_PRO = process.env.NODE_ENV === 'production'
 const cpus = require('os').cpus().length // node自带模块 查看本机有多少cpus 就开启多少线程并行打包
 
 module.exports = {
-  publicPath: './',
+  publicPath: '/',
   outputDir: 'dist', //  生产环境构建文件的目录 默认 dist
   assetsDir: 'static', //  outputDir的静态资源(js、css、img、fonts)目录 放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录。
   configureWebpack: config => {

@@ -2,7 +2,7 @@
  * @Description: 路由入口
  * @Author: shufei
  * @Date: 2021-11-04 09:50:04
- * @LastEditTime: 2021-11-12 10:22:50
+ * @LastEditTime: 2021-11-14 00:20:56
  * @LastEditors: shufei
  */
 import Vue from 'vue'
@@ -16,9 +16,10 @@ const routes = [
   ...demoPublic,
   ...docRoute
 ]
+
 routes.push({
   path: '*',
-  redirect: '/404'
+  redirect: '/error'
 })
 
 const router = new VueRouter({

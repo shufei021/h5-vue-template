@@ -2,12 +2,12 @@
  * @Description:
  * @Author: shufei
  * @Date: 2021-11-04 09:50:04
- * @LastEditTime: 2021-11-12 22:12:46
+ * @LastEditTime: 2021-11-14 13:46:09
  * @LastEditors: shufei
 -->
 <template>
   <div id="app">
-    <transition :name="transitionName">
+    <transition :name="$store.state.direction">
       <keep-alive v-if="$route.meta.keepAlive">
         <router-view class="router"></router-view>
       </keep-alive>
@@ -17,15 +17,7 @@
 </template>
 <script>
 export default {
-  name: 'App',
-  computed: {
-    transitionName () {
-      return this.$store.state.direction
-    }
-  },
-  created () {
-    console.log(this.$store, 'store', this.$route)
-  }
+  name: 'App'
 }
 </script>
 
