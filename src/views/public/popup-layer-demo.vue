@@ -2,7 +2,7 @@
  * @Description: popuplayer-demo 无限弹出层示例
  * @Author: shufei
  * @Date: 2021-11-08 16:55:32
- * @LastEditTime: 2021-11-14 21:23:40
+ * @LastEditTime: 2021-11-14 21:41:10
  * @LastEditors: shufei
 -->
 <template>
@@ -15,7 +15,8 @@
       <van-divider>第一个弹层页面</van-divider>
       <van-button type="primary" @click="layer.show1=false">关闭第一个弹层（也可以点击物理返回键）</van-button>
       <van-button type="info" @click="layer.show2=true">打开第二个弹层</van-button>
-      <!-- <van-cell is-link > 不要再popuplayer里面销毁测试</van-cell> -->
+      <van-cell is-link to="/"> popuplayer销毁</van-cell>
+      popuplayer销毁后，再返回，会返回到页面首页
     </popup-layer>
 
     <!-- 第二个弹层 -->
