@@ -2,7 +2,7 @@
  * @Description: 项目配置
  * @Author: shufei
  * @Date: 2021-11-04 21:18:01
- * @LastEditTime: 2021-11-14 21:30:06
+ * @LastEditTime: 2021-11-20 08:48:34
  * @LastEditors: shufei
  */
 'use strict'
@@ -15,11 +15,14 @@ const cpus = require('os').cpus().length // node自带模块 查看本机有多�
 
 module.exports = {
   publicPath: '/',
-  outputDir: 'dist', //  生产环境构建文件的目录 默认 dist
-  assetsDir: 'static', //  outputDir的静态资源(js、css、img、fonts)目录 放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录。
+
+  //  生产环境构建文件的目录 默认 dist
+  outputDir: 'dist',
+
+  //  outputDir的静态资源(js、css、img、fonts)目录 放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录。
+  assetsDir: 'static',
   configureWebpack: config => {
     config.devtool = 'source-map'
-
     config.optimization.minimizer = [
       new ParallelUglifyPlugin({
         sourceMap: true, // 看情况 生产是否需要打开 优点线上可调式 缺点体积大 谁都可以看到代ma
@@ -51,6 +54,7 @@ module.exports = {
       })
     ]
   },
+
   chainWebpack: config => {
     // 开启图片压缩
     const svgRule = config.module.rule('svg')
@@ -82,6 +86,7 @@ module.exports = {
       .set('assets', resolve('src/assets'))
       .set('api', resolve('src/api'))
       .set('views', resolve('src/views'))
+      .set('mixins', resolve('src/mixins'))
       .set('images', resolve('src/assets/images'))
       .set('components', resolve('src/components'))
       // set svg-sprite-loader
@@ -103,6 +108,7 @@ module.exports = {
       })
       .end()
   },
+
   // css配置
   css: {
     extract: IS_PRO, // 是否将组件中的 CSS 提取至一个独立的 CSS 文件中 (而不是动态注入到 JavaScript 中的 inline 代码)。
@@ -118,12 +124,10 @@ module.exports = {
             hack: `true; @import "${resolve('./src/assets/css/restvant.less')}";`
           }
         }
-      },
-      sass: {
-        prependData: `@import "@/assets/css/variables.scss";@import "@/assets/css/mixin.scss;@import "@/assets/css/index.scss";`
       }
     }
   },
+
   devServer: {
     // development server port 8000
     port: 8000,
@@ -140,6 +144,16 @@ module.exports = {
           // '^/customer-service': 'customer-service'
         }
       }
+    }
+  },
+  // SCSS 配置
+  pluginOptions: {
+    'style-resources-loader': {
+      preProcessor: 'scss',
+      patterns: [
+        path.resolve(__dirname, './src/assets/css/mixins.scss'),
+        path.resolve(__dirname, './src/assets/css/variables.scss')
+      ]
     }
   }
 }

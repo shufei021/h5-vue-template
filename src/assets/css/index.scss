@@ -1,6 +1,5 @@
 @import './variables.scss';
-@import './mixin.scss';
-@import 'https://at.alicdn.com/t/font_2322199_0iu6vy1hhvu5.css'; //图标 
+@import 'https://at.alicdn.com/t/font_2924771_pj4t5otujgg.css'; //图标 
 body,
 button,
 html,
@@ -32,10 +31,12 @@ body {
     font-size: $base-size;
     color: $text-color;
 }
-
-.iphoneX {
-    padding-bottom: env(safe-area-inset-bottom);
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
 }
+
 
 //color
 .blue {

@@ -2,8 +2,8 @@
  * @Description: 全局引入按需引入UI库 vant
  * @Author: shufei
  * @Date: 2021-11-04 20:31:40
- * @LastEditTime: 2021-11-09 10:39:07
- * @LastEditors: shufei
+ * @LastEditTime: 2021-11-19 09:24:52
+ * @LastEditors: huangjing
  */
 // 按需全局引入 vant组件
 import Vue from 'vue'
@@ -52,7 +52,10 @@ import {
   Steps,
   Step,
   SwipeCell,
-  Divider
+  Divider,
+  Calendar,
+  Sticky,
+  ImagePreview
 } from 'vant'
 
 Vue.use(Button)
@@ -100,3 +103,6 @@ Vue.use(Steps)
 Vue.use(Step)
 Vue.use(SwipeCell)
 Vue.use(Divider)
+Vue.use(Calendar)
+Vue.use(Sticky)
+Vue.use(ImagePreview)

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="6px" height="9px" viewBox="0 0 6 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组</title>
+    <defs>
+        <filter color-interpolation-filters="auto" id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.345098 0 0 0 0 0.470588 0 0 0 0 0.705882 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="客户备份" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="筛选" transform="translate(-122.000000, -645.000000)">
+            <g id="编组-22" transform="translate(40.000000, 88.500000)">
+                <g id="-mockplus-" transform="translate(20.059701, 551.000000)">
+                    <g id="编组" transform="translate(0.083582, 0.000000)" filter="url(#filter-1)">
+                        <g transform="translate(64.841791, 10.000000) scale(-1, 1) translate(-64.841791, -10.000000) translate(62.101493, 5.500000)">
+                            <path d="M4.72225844,0.115730866 C4.90543004,-0.0475436258 5.19120421,-0.0367522206 5.360558,0.139844075 C5.52822453,0.314675471 5.51891708,0.586470034 5.34098367,0.750308018 L5.33554697,0.755241232 L1.1181448,4.51452025 L5.32743052,8.24385977 C5.50927879,8.40497598 5.52292016,8.6765898 5.35938905,8.85384528 L5.35438244,8.8591825 C5.18726729,9.03450297 4.90555135,9.04765466 4.72169602,8.88999382 L4.71614904,8.88516693 L0.146056067,4.83615729 C-0.0463457996,4.66569561 -0.0487167746,4.37439146 0.139296032,4.20096348 L0.145052538,4.19575384 L4.72225844,0.115720234 L4.72225844,0.115730866 Z" id="路径" fill="#FFFFFF" fill-rule="nonzero"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

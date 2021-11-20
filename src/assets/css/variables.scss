@@ -1,17 +1,17 @@
-// background
-$background-color: #E2E4EA;
+// background App 背景颜色
+$background-color: #F9FAFB;
 $background-theme-color: #4378bd;
 
-//theme color
-$theme-color: #27b2ff;
+//theme color 品牌色 主色蓝
+$theme-color: #2B83FA;
 
 //size
-$base-size: 15px;
-$font-size-xxs: ($base-size)-3;
-$font-size-xs: ($base-size)-2;
-$font-size-sm: ($base-size)-1;
-$font-size-lg: ($base-size)+1;
-$font-size-xl: ($base-size)+2;
+$base-size: 16px;
+$font-size-15: ($base-size)-1;
+$font-size-14: ($base-size)-2;
+$font-size-13: ($base-size)-3;
+$font-size-12: ($base-size)-4;
+
 
 //color
 $active-color: #f2f3f5;
@@ -19,4 +19,4 @@ $text-color: #404040;
 $blue: #336699;
 $grey: #9b9b9b;
 $light-grey: #a4a4a4;
-$red: #ff0000;
+$red: #FF5257;

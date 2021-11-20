@@ -2,7 +2,7 @@
  * @Description:
  * @Author: shufei
  * @Date: 2021-11-04 09:50:04
- * @LastEditTime: 2021-11-14 11:07:40
+ * @LastEditTime: 2021-11-20 13:46:22
  * @LastEditors: shufei
 -->
 <template>
@@ -10,18 +10,19 @@
     <!-- vue2.0 + vant H5通用模板 -->
     <div class="text-gradient"></div>
     <van-cell is-link to="/public">常用组件文档</van-cell>
-    <van-cell is-link to="/doc">项目说明文档</van-cell>
+    <van-cell is-link to="/public/component">公共组件文档</van-cell>
+    <van-button @click="request">请求</van-button>
   </div>
 </template>
 
 <script>
-import { Banner } from '@/components'
-import { emotionList } from '@/mixins'
+
+import { emotionList } from 'mixins'
 import { Divider } from 'vant'
 
 export default {
   name: 'Home',
-  components: { Banner, [Divider.name]: Divider },
+  components: { [Divider.name]: Divider },
   mixins: [emotionList],
   data () {
     return {
@@ -32,12 +33,19 @@ export default {
 
   },
   mounted () {
-    // console.log(this.$api)
+    // this.$api.contacts.list({ name: 'SHUFEI', age: 11 }).then(res => {
+    //   console.log(res, 'res')
+    // })
+    // this.$api.contacts.add({ name: 'SHUFEI', age: 11 }).then(res => {
+    //   console.log(res, 'res')
+    // })
     // this.showloading()
-    // console.log(this.$route.query, '99999')
   },
   methods: {
-
+    async request () {
+      const result = await this.$api.customer.list()
+      console.log(result)
+    }
   }
 }
 </script>
@@ -78,4 +86,5 @@ h1{
   // -webkit-text-fill-color: transparent;
 
 }
+
 </style>

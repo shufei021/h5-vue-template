@@ -2,11 +2,11 @@
  * @Description: 底部导航栏组件  （组件类型：通用组件）
  * @Author: shufei
  * @Date: 2020-12-30 17:12:39
- * @LastEditTime: 2021-11-12 20:31:08
+ * @LastEditTime: 2021-11-19 11:20:23
  * @LastEditors: shufei
 -->
 <template>
-  <div class="zt-tab-container safe-area-bottom zt-tab-fxied van-hairline--top" v-show="isTabShow">
+  <div class="zt-tab-container zt-tab-fxied van-hairline--top" v-show="isTabShow">
     <div
       class="zt-tab-item"
       v-for="(item, index) in tabs"
@@ -105,7 +105,7 @@ export default {
   }
 }
 </script>
-<style scoped lang="less">
+<style scoped lang="scss">
  .is-only-icon{
     margin-bottom: 0!important;
     font-size: 42px!important;
@@ -163,9 +163,5 @@ export default {
         font-size: 10px;
         line-height: 10px;
     }
-}
-.safe-area-bottom {
-  padding-bottom: constant(safe-area-inset-bottom);
-  padding-bottom: env(safe-area-inset-bottom);
 }
 </style>

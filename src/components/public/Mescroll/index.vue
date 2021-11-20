@@ -2,7 +2,7 @@
  * @Description:
  * @Author: shufei
  * @Date: 2021-11-04 12:46:29
- * @LastEditTime: 2021-11-11 13:56:50
+ * @LastEditTime: 2021-11-17 13:59:27
  * @LastEditors: shufei
 -->
 <template>
@@ -74,7 +74,7 @@ export default {
     // 上拉无数据提示语
     htmlNodata: {
       type: String,
-      default: '<p class="upwarp-nodata">-- END --</p>'
+      default: '<p class="upwarp-nodata" style="color: #c5cad5;font-size:14px;">没有更多了</p>'
     },
     // 返回顶部图片 本地图片用require
     topIcon: {

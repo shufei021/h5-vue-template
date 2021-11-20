@@ -1,8 +1,8 @@
 /*
- * @Description:
+ * @Description: app 模块
  * @Author: shufei
  * @Date: 2021-11-08 21:43:31
- * @LastEditTime: 2021-11-08 21:48:33
+ * @LastEditTime: 2021-11-19 23:35:17
  * @LastEditors: shufei
  */
 const state = {}

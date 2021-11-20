@@ -1,8 +1,8 @@
 /*
- * @Description: 模板入口文件
+ * @Description: 项目入口文件
  * @Author: shufei
  * @Date: 2021-11-04 09:50:04
- * @LastEditTime: 2021-11-12 22:16:22
+ * @LastEditTime: 2021-11-18 18:27:26
  * @LastEditors: shufei
  */
 import Vue from 'vue'
@@ -21,6 +21,7 @@ import 'vant/lib/index.css'
 import '@/assets/css/index.scss'
 import 'lib-flexible'
 import '@/router/permission' // 路由权限控制
+import { Notify } from 'vant'
 Vue.config.productionTip = false
 new Vue({
   router,
@@ -30,15 +31,11 @@ new Vue({
     window.addEventListener('online', updateOnlineStatus)
     window.addEventListener('offline', updateOnlineStatus)
     function updateOnlineStatus (event) {
-      console.log('-----------------Control comes into updateOnlineStatus --------------')
-      console.log('event', event)
-      var condition = navigator.onLine ? 'online' : 'offline'
+      const condition = navigator.onLine ? 'online' : 'offline'
       if (condition === 'online') {
-        console.log('-----------INternet Is conected ----------------')
-        alert('正常工作')
+        Notify({ type: 'success', message: '你的网络已连接' })
       } else {
-        console.log('-----------INternet Is NOOOOOOTT conected ----------------')
-        alert('不在线')
+        Notify({ type: 'danger', message: '你的网络已断开' })
       }
     }
   }

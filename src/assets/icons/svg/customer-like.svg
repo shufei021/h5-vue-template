@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>爱心</title>
+    <defs>
+        <filter color-interpolation-filters="auto" id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.168627 0 0 0 0 0.513725 0 0 0 0 0.980392 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="客户备份" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="客户" transform="translate(-334.000000, -515.000000)">
+            <rect id="bg" fill="#FFFFFF" x="0" y="55" width="375" height="812"></rect>
+            <rect id="矩形" fill="#FFFFFF" x="0" y="495.5" width="375" height="178"></rect>
+            <g filter="url(#filter-1)" id="爱心">
+                <g transform="translate(334.000000, 515.000000)">
+                    <rect id="矩形" fill="#000000" fill-rule="nonzero" opacity="0" x="0" y="0" width="16" height="16"></rect>
+                    <path d="M10.4341667,1.83333333 C13.0135,1.83333333 14.6666667,3.90166667 14.6666667,6.68533333 C14.6666667,8.8455 12.712,11.2245 8.86083333,13.8976667 C8.34297372,14.2563006 7.65702628,14.2563006 7.13916667,13.8976667 C3.288,11.2245 1.33333333,8.8455 1.33333333,6.68533333 C1.33333333,3.90166667 2.9865,1.83333333 5.56583333,1.83333333 C6.49733333,1.83333333 7.12916666,2.15883333 8,2.89733333 C8.871,2.159 9.50266667,1.83333333 10.4341667,1.83333333 Z" id="路径" fill="#000000" fill-rule="nonzero"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -2,7 +2,7 @@
  * @Description: popuplayer-demo 无限弹出层示例
  * @Author: shufei
  * @Date: 2021-11-08 16:55:32
- * @LastEditTime: 2021-11-14 21:41:10
+ * @LastEditTime: 2021-11-20 11:17:11
  * @LastEditors: shufei
 -->
 <template>
@@ -24,14 +24,15 @@
       <van-divider>第二个弹层页面</van-divider>
       <van-button type="primary" @click="layer.show2=false">关闭第二个弹层（也可以点击物理返回键）</van-button>
       <van-button type="info" @click="layer.show3=true">打开第三个弹层</van-button>
-      <van-button type="warning" @click="closeAll(2)">关闭所有弹层</van-button>
+      <van-button type="warning" @click="closeAll(0,2)">关闭所有弹层</van-button>
     </popup-layer>
 
     <!-- 第三个弹层 -->
     <popup-layer :visible.sync="layer.show3" :extra="{lv:3}" @onOpen="open" @onClose="close" ref="lv3">
       <van-divider>第三个弹层页面</van-divider>
       <van-button type="primary" @click="layer.show3=false">关闭第二个弹层（也可以点击物理返回键）</van-button>
-      <van-button type="warning" @click="closeAll(3)">关闭所有弹层</van-button>
+      <van-button type="warning" @click="closeAll(0,3)">关闭所有弹层</van-button>
+      <van-button type="danger" @click="closeLvBy(1,3)">返回到第一层layer</van-button>
     </popup-layer>
   </div>
 </template>
@@ -65,20 +66,23 @@ export default {
     close ({ isPopstate }, extra) {
       console.log(isPopstate ? '点击物理返回键 把 第' + extra.lv + '层弹层关闭了' : '用其它非物理返回键方式 把 第' + extra.lv + '层弹层关闭了', extra)
     },
-    closeAll (lv) {
-      //  for (let i = lv; i > 0; i--)  this.$refs['lv' + i].closeLv()
-      for (let i = lv; i > 0; i--) {
-        ((i) => {
-          setTimeout(() => {
-            this.$refs['lv' + i].closeLv()
-          }, i * 30)
-        })(i)
-      }
+    closeAll (targetLv, totalLv) {
+      this.$refs.lv1.backLvBy(targetLv, totalLv, (i) => {
+        this.layer['show' + i] = false
+      })
+    },
+    /**
+     * back target lv，total lv
+     */
+    closeLvBy (targetLv, totalLv) {
+      this.$refs.lv1.backLvBy(targetLv, totalLv, (i) => {
+        this.layer['show' + i] = false
+      })
     }
   }
 }
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>
   .container{
     height: 100%;
     overflow: hidden;

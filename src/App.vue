@@ -2,7 +2,7 @@
  * @Description:
  * @Author: shufei
  * @Date: 2021-11-04 09:50:04
- * @LastEditTime: 2021-11-14 13:46:09
+ * @LastEditTime: 2021-11-19 23:38:43
  * @LastEditors: shufei
 -->
 <template>
@@ -16,8 +16,12 @@
   </div>
 </template>
 <script>
+import VConsole from 'vconsole'
 export default {
-  name: 'App'
+  name: 'App',
+  mounted () {
+    if (this.$utils.getQuery().debug) return new VConsole()
+  }
 }
 </script>
 
@@ -30,8 +34,9 @@ export default {
   width: 100%;
   height: 100%;
   position: relative;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
 }
-
 .router {
   width: 100%;
   height: 100%;
@@ -43,12 +48,5 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  // background-color: #fff;
-}
-
-.dis {
-  display: flex;
-  width: 200px;
-  height: 200px;
 }
 </style>

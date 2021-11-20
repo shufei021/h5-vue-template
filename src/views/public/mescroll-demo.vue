@@ -2,7 +2,7 @@
  * @Description: mescroll 下拉刷新 上拉加载更多 组件示例
  * @Author: shufei
  * @Date: 2021-11-08 16:32:36
- * @LastEditTime: 2021-11-12 09:51:37
+ * @LastEditTime: 2021-11-19 23:32:48
  * @LastEditors: shufei
 -->
 <template>
@@ -14,10 +14,10 @@
             <van-card
               num="2"
               price="2.00"
-              desc="描述信息"
-              title="商品标题"
+              desc="祖传三百年🐂🍺"
+              title="我的牛，你知道"
               class="goods-card"
-              thumb="https://img01.yzcdn.cn/vant/cat.jpeg"
+              thumb="https://img1.baidu.com/it/u=2678120841,2153106267&fm=26&fmt=auto"
             />
             <template #right>
               <van-button square text="删除" type="danger" class="delete-button" />
@@ -81,17 +81,19 @@ export default {
         if (mescroll) this.$nextTick(() => mescroll.endByPage(list.length, Page))
         // mescroll.endErr()
       }, 1000)
-      console.log(page, mescroll)
     }
   }
 }
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
 .container{
-  height: 100vh;
+  height: 100%;
   .item{
-    padding: 10px 0;
+    padding-bottom: 10px;
+  }
+  & .item:last-child{
+    padding-bottom: 0;
   }
 }
   .goods-card {

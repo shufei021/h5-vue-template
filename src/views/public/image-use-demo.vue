@@ -2,14 +2,15 @@
  * @Description:
  * @Author: shufei
  * @Date: 2021-11-11 11:45:35
- * @LastEditTime: 2021-11-11 19:28:54
+ * @LastEditTime: 2021-11-20 11:57:20
  * @LastEditors: shufei
 -->
 <template>
   <div class="container">
+    <van-divider :style="{ color: '#7fddad', borderColor: '#07c160', padding: '0 16px' }"><h3>images 使用示例</h3></van-divider>
     <img :src="topImg" alt="">
-    <img :src="csImg" alt="" style="width:100%">
     <img :src="qywxImg" alt="">
+    <img :src="csImg" alt="" style="width:100%">
   </div>
 </template>
 
