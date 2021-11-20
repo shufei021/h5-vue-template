@@ -2,7 +2,7 @@
  * @Description:
  * @Author: shufei
  * @Date: 2021-11-20 13:09:47
- * @LastEditTime: 2021-11-20 14:28:41
+ * @LastEditTime: 2021-11-21 00:18:16
  * @LastEditors: shufei
  */
 import axios from 'axios'
@@ -24,9 +24,8 @@ instance.interceptors.request.use(
     if (config.url !== '/login') {
       const token = localStorage.getItem('token')
       // 请求头携带token
-      config.headers.Authorization = token
+      token && (config.headers.Authorization = token)
     }
-
     // 登录流程控制中，根据本地是否存在token判断用户的登录情况
     // 但是即使token存在，也有可能token是过期的，所以在每次的请求头中携带token
     // 后台根据携带的token判断用户的登录情况，并返回给我们对应的状态码
@@ -43,6 +42,7 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
   (response) => {
+    response.config.showLoading && loading.close()
     removePendingRequest(response.config) // 从pendingRequest对象中移除请求
     return response
   },

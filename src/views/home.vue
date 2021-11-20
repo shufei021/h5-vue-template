@@ -2,7 +2,7 @@
  * @Description:
  * @Author: shufei
  * @Date: 2021-11-04 09:50:04
- * @LastEditTime: 2021-11-20 13:46:22
+ * @LastEditTime: 2021-11-21 01:00:11
  * @LastEditors: shufei
 -->
 <template>
@@ -40,6 +40,7 @@ export default {
     //   console.log(res, 'res')
     // })
     // this.showloading()
+    // this.request()
   },
   methods: {
     async request () {

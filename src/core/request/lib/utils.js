@@ -2,7 +2,7 @@
  * @Description: 辅助函数
  * @Author: shufei
  * @Date: 2021-11-20 13:02:40
- * @LastEditTime: 2021-11-20 14:11:49
+ * @LastEditTime: 2021-11-21 00:19:08
  * @LastEditors: shufei
  */
 import axios from 'axios'
@@ -53,8 +53,8 @@ export const tip = (msg) => {
    * loading
    */
 export const loading = {
-  opne () {
-    Toast.loading({ forbidClick: true, duration: 0 })
+  open () {
+    Toast.loading({ forbidClick: true, duration: 0, message: '加载中...' })
   },
   close () {
     Toast.clear()

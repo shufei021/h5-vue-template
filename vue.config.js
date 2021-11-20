@@ -2,7 +2,7 @@
  * @Description: 项目配置
  * @Author: shufei
  * @Date: 2021-11-04 21:18:01
- * @LastEditTime: 2021-11-20 08:48:34
+ * @LastEditTime: 2021-11-21 00:01:41
  * @LastEditors: shufei
  */
 'use strict'
@@ -135,8 +135,8 @@ module.exports = {
       'Access-Control-Allow-Origin': '*'
     },
     proxy: {
-      '/api1': {
-        target: 'http://www.baidu.com',
+      '/api': {
+        target: 'http://localhost:8080/',
         ws: false,
         changeOrigin: true,
         // logLevel: 'debug',

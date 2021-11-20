@@ -2,12 +2,12 @@
  * @Description: get 、 post 封装 , service 管理
  * @Author: shufei
  * @Date: 2021-11-20 13:21:06
- * @LastEditTime: 2021-11-20 14:04:05
+ * @LastEditTime: 2021-11-21 00:58:37
  * @LastEditors: shufei
  */
 
 /**
- * 需求：
+ * 满足需求：
  * 1. 请求响应拦截
  * 2. 路由跳转取消请求
  * 3. 去重重复请求
