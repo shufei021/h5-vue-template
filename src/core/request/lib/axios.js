@@ -2,7 +2,7 @@
  * @Description:
  * @Author: shufei
  * @Date: 2021-11-20 13:09:47
- * @LastEditTime: 2021-11-20 13:28:15
+ * @LastEditTime: 2021-11-20 14:28:41
  * @LastEditors: shufei
  */
 import axios from 'axios'
@@ -17,9 +17,15 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   function (config) {
-    console.log(config, 'configconfig')
+    // 重复请求校验
     removePendingRequest(config) // 检查是否存在重复请求，若存在则取消已发的请求
     addPendingRequest(config) // 把当前请求添加到pendingRequest对象中
+    // 如果是 非登录页面 ，对携带 token 须校验
+    if (config.url !== '/login') {
+      const token = localStorage.getItem('token')
+      // 请求头携带token
+      config.headers.Authorization = token
+    }
 
     // 登录流程控制中，根据本地是否存在token判断用户的登录情况
     // 但是即使token存在，也有可能token是过期的，所以在每次的请求头中携带token
